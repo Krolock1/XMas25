@@ -1,17 +1,17 @@
 <template>
-    <div class="p-3 text-center">
+    <div class="p-3 text-center grid grid-col gap-3 bg-green-100 min-h-screen">
         <h2 class="font-bold">Weihnachtsmarkt 2025</h2>
         <div 
-        class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-1"        
+        class="grid grid-cols-2 md:grid-cols-4 gap-1 auto-rows-fr"        
         >
             <div 
             v-for="item in xConfig" 
             :key="item.id" 
-            class="border p-2 rounded flex flex-col gap-2 text-center justify-center items-center"
+            class="border p-2 rounded-xl flex flex-col gap-2 text-center justify-center items-center"
             :class="item.background"
             @click="item.count++"
             >
-                <div class="font-bold">
+                <div class="font-extrabold">
                     <div v-for="name in item.displayNames" :key="name">{{ name }}</div>
                 </div>
                 <div v-if="item.amount > 0">
@@ -20,10 +20,21 @@
                 <div  v-if="item.amount > 0">
                     Pfand: {{ item.deposit.toFixed(2) }} €
                 </div>
-                <div>
+                <div class="grow"></div>
+                <div class="text-white">
                     gebucht: {{ item.count }} Stück
                 </div>
             </div>
+        </div>
+        
+        <div class="grow"/>
+        
+        <div class="rounded-xl bg-lime-300 p-2">
+            <div class="text-2xl">Gesamtbetrag: <span class="text-4xl font-black">{{ amountTotal.toFixed(2) }} </span> €</div>
+            <div class="text-sm">(Enthaltener Pfand: {{ deposit.toFixed(2) }} €)</div>
+        </div>
+        <div class="rounded-xl bg-red-600 text-white p-2" @click="clear">
+            Zurücksetzen
         </div>
     </div>
 </template>
@@ -58,7 +69,7 @@ const xConfig: Ref<XItem[]> = ref(      [
     },
     {
         id: 'water-shnaps',
-        background: 'bg-blue-600',
+        background: 'bg-blue-300',
         displayNames: ['Wasser', 'Schnaps'],
         amount: 4,
         deposit: 2,
@@ -82,8 +93,8 @@ const deposit = computed(() => {
 
 const amountTotal = computed(() => amount.value + deposit.value);
 
-const onAdd =(item: XItem)=> {
-    item.count++;
+const clear = () => {
+    xConfig.value.forEach(item => item.count = 0);
 }
 
 </script>

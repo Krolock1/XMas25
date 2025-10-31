@@ -1,8 +1,8 @@
 <template>
-    <div class="p-3 text-center grid grid-col gap-3 bg-green-100 min-h-screen">
+    <div class="p-3 text-center grid grid-col gap-3 bg-green-100 text-2xl">
         <h2 class="font-bold">Weihnachtsmarkt 2025</h2>
         <div 
-        class="grid grid-cols-2 md:grid-cols-4 gap-1 auto-rows-fr"        
+        class="grid grid-cols-2 md:grid-cols-4 gap-2 auto-rows-fr"        
         >
             <div 
             v-for="item in xConfig" 
@@ -11,18 +11,18 @@
             :class="item.background"
             @click="item.count++"
             >
-                <div class="font-extrabold">
-                    <div v-for="name in item.displayNames" :key="name">{{ name }}</div>
-                </div>
-                <div v-if="item.amount > 0">
-                    Preis: {{ item.amount.toFixed(2) }} €
-                </div>
-                <div  v-if="item.amount > 0">
-                    Pfand: {{ item.deposit.toFixed(2) }} €
+                <div class="font-extrabold text-xl flex flex-wrap gap-1 items-center justify-center">
+                    <span v-for="(name, index) in item.displayNames" :key="name">{{ name }}<template v-if="index < item.displayNames.length - 1">, </template></span>
                 </div>
                 <div class="grow"></div>
-                <div class="text-white">
-                    gebucht: {{ item.count }} Stück
+                <div v-if="item.amount > 0" class="text-base font-bold">
+                    Preis: {{ item.amount.toFixed(2) }} €
+                </div>
+                <div  v-if="item.amount > 0" class="text-base font-bold">
+                    Pfand: {{ item.deposit.toFixed(2) }} €
+                </div>
+                <div class="text-white text-base">
+                    gebucht: <span class="font-bold text-lg">{{ item.count }}</span> Stück
                 </div>
             </div>
         </div>

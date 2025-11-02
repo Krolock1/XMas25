@@ -5,12 +5,20 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    allowedHosts:[ 'xmas25.loca.lt'],    
+  },
+  preview: {
+    allowedHosts:[ 'xmas25.loca.lt'],    
+    port: 5555
+  },
   plugins: [
     vue(), 
     tailwindcss(),
     VitePWA({
     registerType: 'autoUpdate',
-    injectRegister: false,
+    injectRegister: 'script',
+    includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'pwa-192-192.png', 'pwa-512-512.png'],
 
     pwaAssets: {
       disabled: false,
@@ -20,12 +28,24 @@ export default defineConfig({
     manifest: {
       name: 'XMas25',
       short_name: 'XMas25',
-      description: 'Berechnet die Preise beim Glühweinverkauf auf dem Weihnachtsmarkt',
+      description: 'Berechnet die Getränkepreise für den Weihnachtsmarkt',
       theme_color: '#ffffff',
+      icons: [
+        {
+          src: 'pwa-192-192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: 'pwa-512-512.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
     },
 
     workbox: {
-      globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+      globPatterns: ['**/*.{js,css,html,svg,png,ico,ts}'],
       cleanupOutdatedCaches: true,
       clientsClaim: true,
     },

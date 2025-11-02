@@ -8,7 +8,9 @@
     "lint": "eslint . --ext .ts,.tsx,.vue",
     "lint:fix": "eslint . --ext .ts,.tsx,.vue --fix",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pwa": "bun run build && bun run preview",
+    "tunnel": "npx localtunnel --port 5555 --subdomain xmas25"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",

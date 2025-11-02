@@ -1,6 +1,6 @@
 <template>
-    <div class="p-3 text-center grid grid-col gap-3 bg-green-100 text-2xl">
-        <h2 class="font-bold">Weihnachtsmarkt 2025</h2>
+    <div class="p-3 text-center flex flex-col gap-3 bg-green-100 text-2xl min-h-screen">
+        <h2 class="font-bold"><img src="/pwa-192-192.png" alt="Glühweinrechner 2025" class="inline-block w-10 h-10 mr-2" />Glühweinrechner 2025</h2>
         <div 
         class="grid grid-cols-2 md:grid-cols-4 gap-2 auto-rows-fr"        
         >
@@ -18,9 +18,6 @@
                 <div v-if="item.amount > 0" class="text-base font-bold">
                     Preis: {{ item.amount.toFixed(2) }} €
                 </div>
-                <div  v-if="item.amount > 0" class="text-base font-bold">
-                    Pfand: {{ item.deposit.toFixed(2) }} €
-                </div>
                 <div class="text-white text-base">
                     gebucht: <span class="font-bold text-lg">{{ item.count }}</span> Stück
                 </div>
@@ -29,13 +26,16 @@
         
         <div class="grow"/>
         
-        <div class="rounded-xl bg-lime-300 p-2">
+        <div class="rounded-xl bg-lime-300 p-2 pointer-events-none">
             <div class="text-2xl">Gesamtbetrag: <span class="text-4xl font-black">{{ amountTotal.toFixed(2) }} </span> €</div>
             <div class="text-sm">(Enthaltener Pfand: {{ deposit.toFixed(2) }} €)</div>
         </div>
         <div class="rounded-xl bg-red-600 text-white p-2" @click="clear">
             Zurücksetzen
         </div>
+        <div class="text-xs text-gray-600 h-20 mb-1">
+            © 2025 Markus Walgenbach
+        </div>        
     </div>
 </template>
 

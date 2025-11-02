@@ -49,11 +49,9 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
   },
 })
 
-const title = computed(() => {
-  if (offlineReady.value)
-    return 'App ready to work offline'
+const title = computed(() => {  
   if (needRefresh.value)
-    return 'New content available, click on reload button to update.'
+    return 'Neue Version ist verfügbar. Zum aktualisieren bitte auf den Reload-Button klicken.'
   return ''
 })
 
@@ -80,7 +78,7 @@ function close() {
         Reload
       </button>
       <button type="button" @click="close">
-        Close
+        OK
       </button>
     </div>
   </div>

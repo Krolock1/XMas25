@@ -34,7 +34,7 @@
             Zurücksetzen
         </div>
         <div class="text-xs text-gray-600 mb-1 h-16">
-            © 2025 Markus Walgenbach 
+            © 2025 Markus Walgenbach & Flöckes
         </div>        
     </div>
 </template>

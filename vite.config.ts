@@ -12,6 +12,7 @@ export default defineConfig({
     allowedHosts:[ 'xmas25.loca.lt'],    
     port: 5555
   },
+  base: '/XMas25/',
   plugins: [
     vue(), 
     tailwindcss(),

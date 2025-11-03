@@ -17,8 +17,8 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
     registerType: 'autoUpdate',
-    injectRegister: 'script',
-    includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'pwa-192-192.png', 'pwa-512-512.png'],
+    injectRegister: 'inline',
+    includeAssets: ['apple-touch-icon.png', 'pwa-192-192.png', 'pwa-512-512.png'],
 
     pwaAssets: {
       disabled: false,
@@ -26,8 +26,8 @@ export default defineConfig({
     },
 
     manifest: {
-      name: 'XMas25',
-      short_name: 'XMas25',
+      name: 'Glühweinrechner',
+      short_name: 'Glühweinrechner',
       description: 'Berechnet die Getränkepreise für den Weihnachtsmarkt',
       theme_color: '#ffffff',
       icons: [
@@ -41,6 +41,19 @@ export default defineConfig({
           sizes: '512x512',
           type: 'image/png',
         },
+        {
+          src: 'pwa-512-512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any',
+        },
+        {
+          src: 'pwa-512-512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'maskable',
+        },        
+
       ],
     },
 

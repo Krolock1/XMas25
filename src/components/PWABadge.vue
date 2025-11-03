@@ -50,6 +50,8 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
 })
 
 const title = computed(() => {  
+  if (offlineReady.value)
+    return 'Die App ist jetzt offline verfügbar.'
   if (needRefresh.value)
     return 'Neue Version ist verfügbar. Zum aktualisieren bitte auf den Reload-Button klicken.'
   return ''

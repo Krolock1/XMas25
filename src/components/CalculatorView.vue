@@ -80,7 +80,7 @@ const xConfig: Ref<XItem[]> = ref(      [
         background: 'bg-red-400',
         displayNames: ['Glühwein mit Schuss'],
         amount: 3.5,
-        deposit: 4,
+        deposit: 2,
         count:0,
     },
     {

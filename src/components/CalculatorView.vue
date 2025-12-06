@@ -54,7 +54,7 @@ const xConfig: Ref<XItem[]> = ref(      [
     {
         id: 'main-drinks',
         background: 'bg-red-600',
-        displayNames: ['Glühwein', 'Bier','Punsch Schuss', 'Softgetränk'],
+        displayNames: ['Glühwein','Punsch Schuss'],
         amount: 3,
         deposit: 2,
         count:0,
@@ -86,9 +86,9 @@ const xConfig: Ref<XItem[]> = ref(      [
     {
         id: 'man-drink',
         background: 'bg-amber-600',
-        displayNames: ['Herrengedeck'],
-        amount: 4,
-        deposit: 4,
+        displayNames: ['Bier, Cola'],
+        amount: 3,
+        deposit: 0,
         count:0,
     },
     {
